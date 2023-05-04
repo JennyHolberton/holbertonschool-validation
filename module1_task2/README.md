@@ -20,3 +20,4 @@ To get started with DevOps and building a website with Hugo using the Makefile p
 **Build**: Use the `make build` command in the terminal to build the static HTML pages from the Markdown files.
 **Create a new post**: Use the `make post POST_NAME=<name> POST_TITLE=<title>` command in the terminal to create a new post in the `content/posts` directory with the given name and title.
 **Clean**: Use the `make clean` command in the terminal to remove the `dist` directory and its contents.
+**Help**: Use help to show Makefile usage
