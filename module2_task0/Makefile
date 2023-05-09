@@ -7,10 +7,11 @@ run:	## Runs the application. Writes logs into awesome-api.log
 
 
 stop:	## Stops the application. Kills PID of application
-	kill "$$(pgrep awesome-api)"
+	-kill "$$(pgrep awesome-api)"
 
 
 clean:	## Stops the application. Deletes awesome-api, awesome-api.log and go.sum
+	-kill "$$(pgrep awesome-api)"
 	rm -rf awesome-api awesome-api.log go.sum
 
 

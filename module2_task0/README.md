@@ -18,7 +18,7 @@ To get started with starting up an HTTP web server in Golang, you will need the 
 - A text editor or IDE (Emacs, Visual Studio Code)
 
 ## Lifecycle
-**Build**: To compile the source code of the application and create a binary file named "awesome-api" \
+**build**: To compile the source code of the application and create a binary file named "awesome-api" \
 **run**: To start the application and write logs into awesome-api.log \
 **stop**: To stop the running application by killing the process ID (PID) \
 **clean**: To stop the application, delete the awesome-api binary file, and remove the awesome-api.log file \
