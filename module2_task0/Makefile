@@ -10,8 +10,8 @@ stop:	## Stops the application. Kills PID of application
 	kill "$$(pgrep awesome-api)"
 
 
-clean:	## Stops the application. Deletes awesome-api and awesome-api.log
-	rm -rf awesome-api awesome-api.log
+clean:	## Stops the application. Deletes awesome-api, awesome-api.log and go.sum
+	rm -rf awesome-api awesome-api.log go.sum
 
 
 test:	## Curls HTTP to check if server is running
@@ -20,4 +20,4 @@ test:	## Curls HTTP to check if server is running
 
 
 help:	## Shows help usage
-	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep
+	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
