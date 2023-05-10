@@ -55,6 +55,12 @@ func Test_HelloHandler(t *testing.T) {
       body:         "Hello ThEMuFfInMaN!",
     },
     {
+      name:         "Boots on Puss",
+      queryString:  "name=",
+      responseCode: 400,
+      body:         "",
+    },
+    {
       name:         "",
       queryString:  "",
       responseCode: 200,
