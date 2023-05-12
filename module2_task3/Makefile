@@ -1,0 +1,37 @@
+build:  ## Compiles source code of application to a binary file named awesome-api
+	$(MAKE) lint
+	go build -o awesome-api
+
+
+run:	## Runs the application. Writes logs into awesome-api.log
+	./awesome-api >./awesome-api.log 2>&1 &
+
+
+stop:	## Stops the application. Kills PID of application
+	-kill "$$(pgrep awesome-api)"
+
+
+clean:	## Stops the application. Deletes awesome-api, awesome-api.log and go.sum
+	$(MAKE) stop
+	rm -rf awesome-api awesome-api.log go.sum coverage-units.out coverage-integrations.out
+
+
+test:	## Runs both Unit tests and Intergration tests
+	$(MAKE) unit-tests
+	$(MAKE) integration-tests
+
+
+lint: ## Checks for semantic errors
+	golangci-lint run
+
+
+unit-tests: ## Runs unit-tests
+	go test -v -short -coverprofile=coverage-units.out
+
+
+integration-tests: ## Runs intergrated tests
+	go test -v -coverprofile=coverage-integrations.out 
+
+
+help:	## Shows help usage
+	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
