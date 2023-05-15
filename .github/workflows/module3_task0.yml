@@ -7,11 +7,13 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  test_schedule:
+  module3_task0:
     runs-on: ubuntu-22.04
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
 
       - name: Go into correct directory and execute make help
-        run: cd module_3_task0 make help
+        run: |
+          cd module_3_task0
+          make help
