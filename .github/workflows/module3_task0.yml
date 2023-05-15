@@ -15,5 +15,5 @@ jobs:
 
       - name: Go into correct directory and execute make help
         run: |
-          cd module_3_task0
+          cd module3_task0
           make help
