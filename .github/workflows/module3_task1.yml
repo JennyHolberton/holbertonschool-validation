@@ -1,0 +1,20 @@
+name: module3_task1
+run-name: module3_task1
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  module3_task1:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Go into correct directory and execute make help
+        run: |
+          cd module3_task1
+          make build
