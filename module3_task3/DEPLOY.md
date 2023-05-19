@@ -13,6 +13,10 @@ the desired deployment location.
 the directory where the archive is located.
 3. Run `unzip awesome-website.zip`
 
+## Tag
+
+Tags a verion to the release
+
 ## Commands to start and stop the application
 
 ### Start
