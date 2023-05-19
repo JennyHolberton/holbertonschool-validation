@@ -27,6 +27,9 @@ jobs:
           cd module3_task2
           make build
           make run
+          make validate
+          make integration-tests
+          make unit-tests
           make package
           make post
           make clean
