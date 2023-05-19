@@ -1,11 +1,12 @@
 # Introduction to DevOps
 
-Automating tedious tasks and shell-like tasks with Makefiles.
+Automating tedious tasks and shell-like tasks with Makefiles. \
 Building static HTML websites from Markdown code using Go-Hugo.
 
 ## Prerequisites
 
-To get started with DevOps and building a website with Hugo using the Makefile provided, you will need the following:
+To get started with DevOps and building a website with Hugo \
+using the Makefile provided, you will need the following:
 
 - An HTML5-compliant web browser (Firefox, Chrome, Opera, Safari, Edge, etc.)
 - A GitHub account
@@ -17,24 +18,35 @@ To get started with DevOps and building a website with Hugo using the Makefile p
 
 ## Lifecycle
 
-**Build**: Use the `make build` command in the terminal to build the static HTML pages from the Markdown files. \
-**Create a new post**: Use the `make post POST_NAME=<name> POST_TITLE=<title>` command in the terminal to create a new post in the `content/posts` directory with the given name and title. \
-**Clean**: Use the `make clean` command in the terminal to remove the `dist` directory and its contents. \
+**Build**: Use the `make build` command in the terminal to build \
+the static HTML pages from the Markdown files.
+**Create a new post**: Use the `make post POST_NAME=<name> POST_TITLE=<title>` \
+command in the terminalto create a new post in the `content/posts` directory \
+with the given name and title.
+**Clean**: Use the `make clean` command in the terminal to remove the `dist` \
+directory and its contents.
 **Help**: Use help to show Makefile usage.
 
 ## Workflow
 
-To ensure the code is always ready to be deployed and that the build process is up to date, automated workflow using GitHub Actions has been set up. This workflow performs various validations, including linting, building, and running tests.
+To ensure the code is always ready to be deployed and that the build \
+process is up to date, automated workflow using GitHub Actions has been set up. \
+This workflow performs various validations, \
+including linting, building, and running tests.
 
 ### Workflow Steps
 
-1. **Clone Repository:** This step clones the repository into the GitHub Actions environment.
-2. **Set Up Environment:** The workflow uses the `ubuntu-22.04` virtual machine.
-3. **Validate Makefile:** The workflow positions itself in the correct directory and executes the command `make help` to validate the presence of the Makefile and ensure it implements the help target.
+1. **Clone Repository:** Clones the repository into the GitHub Actions environment.
+2. **Set Up Environment:** Workflow uses the `ubuntu-22.04` virtual machine.
+3. **Validate Makefile:** Workflow positions itself in the correct directory \
+and executes the command `make help` to validate the presence of the Makefile \
+and ensure it implements the help target.
 
 ### Workflow Trigger
 
 The workflow is triggered in two scenarios:
 
 1. **New Code Push:** Whenever there is new code pushed to the repository
-2. **Daily Schedule:** The workflow is also scheduled to run once per day at a specified time. This ensures that our code is regularly validated and ready for deployment.
+2. **Daily Schedule:** The workflow is also scheduled to run once per day \
+at a specified time. This ensures that our code is regularly validated \
+and ready for deployment.

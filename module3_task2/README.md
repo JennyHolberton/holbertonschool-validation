@@ -1,6 +1,6 @@
 # Introduction to DevOps
 
-Automating tedious tasks and shell-like tasks with Makefiles.
+Automating tedious tasks and shell-like tasks with Makefiles. \
 Building static HTML websites from Markdown code using Go-Hugo.
 
 ## Prerequisites
