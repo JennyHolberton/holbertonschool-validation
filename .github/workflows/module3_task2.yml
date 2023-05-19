@@ -24,6 +24,7 @@ jobs:
           make build
           make run
           make package
+          make lint
           make post
           make clean
           make help
