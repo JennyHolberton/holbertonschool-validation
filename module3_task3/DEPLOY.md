@@ -12,10 +12,7 @@ the desired deployment location.
 2. Open a terminal or command prompt and navigate to \
 the directory where the archive is located.
 3. Run `unzip awesome-website.zip`
-
-## Tag
-
-Tags a verion to the release
+4. Find archive in tag 1.0.0 release 
 
 ## Commands to start and stop the application
 
