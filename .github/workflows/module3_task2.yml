@@ -1,4 +1,4 @@
-name: module3_task1
+name: module3_task2
 on:
   push:
     branches:
@@ -15,13 +15,14 @@ jobs:
 
       - name: Setup Hugo
         run: |
-          cd module3_task1
+          cd module3_task2
           chmod u+x setup.sh
           ./setup.sh
       - name: Go into correct directory and execute make targets
         run: |
-          cd module3_task1
+          cd module3_task2
           make build
+          make run
           make package
           make post
           make clean
