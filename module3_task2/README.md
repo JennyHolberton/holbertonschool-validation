@@ -1,12 +1,11 @@
 # Introduction to DevOps
 
-Automating tedious tasks and shell-like tasks with Makefiles. \
+Automating tedious tasks and shell-like tasks with Makefiles.
 Building static HTML websites from Markdown code using Go-Hugo.
 
 ## Prerequisites
 
-To get started with DevOps and building a website with Hugo \
-using the Makefile provided, you will need the following:
+To build a Hugo website, you'll need:
 
 - An HTML5-compliant web browser (Firefox, Chrome, Opera, Safari, Edge, etc.)
 - A GitHub account
@@ -18,14 +17,15 @@ using the Makefile provided, you will need the following:
 
 ## Lifecycle
 
-**Build**: Use the `make build` command in the terminal to build \
-the static HTML pages from the Markdown files.
-**Create a new post**: Use the `make post POST_NAME=<name> POST_TITLE=<title>` \
+`build`:
+`make build` to build static HTML pages from Markdown files.
+`post`:
+`make post POST_NAME=<name> POST_TITLE=<title>` \
 command in the terminalto create a new post in the `content/posts` directory \
 with the given name and title.
-**Clean**: Use the `make clean` command in the terminal to remove the `dist` \
-directory and its contents.
-**Help**: Use help to show Makefile usage.
+`clean`:
+`make clean` Removes the `dist` directory and its contents.
+`help`: Show Makefile usage.
 
 ## Workflow
 
