@@ -19,13 +19,17 @@ To build a Hugo website, you'll need:
 
 `build`:
 `make build` to build static HTML pages from Markdown files.
+
 `post`:
 `make post POST_NAME=<name> POST_TITLE=<title>`
 command in the terminalto create a new post in the `content/posts` directory
 with the given name and title.
+
 `clean`:
 `make clean` Removes the `dist` directory and its contents.
-`help`: Show Makefile usage.
+
+`help`: 
+Show Makefile usage.
 
 ## Workflow
 

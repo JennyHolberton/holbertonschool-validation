@@ -37,7 +37,7 @@ integration-tests: ## Run integration tests
 	go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 lint:	## Lint markdown files
-	markdownlint README.md DEPLOY.md
+	markdownlint DEPLOY.md
 
 package: ## Creates a zip file containing awesome-api binary file and dist/ directory
 	zip -R awesome-website.zip dist/
