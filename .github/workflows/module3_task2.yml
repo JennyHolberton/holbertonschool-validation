@@ -18,13 +18,23 @@ jobs:
           cd module3_task2
           chmod u+x setup.sh
           ./setup.sh
+      - name: lint markdownfile
+        run: |
+          cd module3_task2
+          make lint
       - name: Go into correct directory and execute make targets
         run: |
           cd module3_task2
           make build
           make run
           make package
-          make lint
           make post
           make clean
           make help
+
+      - name: Archive zip file on success
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Archive zip file
+          path: module3_task2/awesome-website.zip
