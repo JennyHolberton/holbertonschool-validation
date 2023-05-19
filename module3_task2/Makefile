@@ -36,6 +36,9 @@ unit-tests: ## Run unit tests
 integration-tests: ## Run integration tests
 	go test -v -coverprofile=$(COVERAGE)-integrations.out
 
+validate:	## Validate the file dist/index.html using the command line Holberton’s W3C Validator.
+	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
+
 lint:	## Lint markdown files
 	markdownlint DEPLOY.md
 
