@@ -1,0 +1,55 @@
+name: module3_task3
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '1.0.0'
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  module3_task3:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        run: |
+          cd module3_task3
+          chmod u+x setup.sh
+          ./setup.sh
+      - name: lint markdownfile
+        run: |
+          cd module3_task3
+          make lint
+      - name: Go into correct directory and execute make targets
+        run: |
+          cd module3_task3
+          make build
+          make run
+          make validate
+          make integration-tests
+          make unit-tests
+          make package
+          make post
+          make clean
+          make help
+
+      - name: Archive zip file on success
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Archive zip file
+          path: module3_task3/awesome-website.zip
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            awesome-website.zip
+          body: |
+            $(cat DEPLOY.md)
+
+          
