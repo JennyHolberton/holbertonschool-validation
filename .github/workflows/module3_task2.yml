@@ -22,7 +22,6 @@ jobs:
         run: |
           cd module3_task1
           make build
-          make run
           make package
           make post
           make clean
