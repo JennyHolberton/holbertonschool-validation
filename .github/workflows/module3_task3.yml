@@ -36,7 +36,7 @@ jobs:
           make help
 
       - name: Archive zip file on success
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ success() }}
         uses: actions/upload-artifact@v3
         with:
           name: Archive zip file
