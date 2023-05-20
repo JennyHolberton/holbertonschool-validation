@@ -8,6 +8,8 @@ on:
 
 jobs:
   module3_task3:
+    permissions:
+      contents: write
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
