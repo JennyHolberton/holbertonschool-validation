@@ -8,8 +8,6 @@ on:
 
 jobs:
   module3_task3:
-    permissions:
-      contents: write
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -37,11 +35,11 @@ jobs:
           make package
           make help
 
-      - name: Archive zip file on success
-        if: ${{ success() }}
+      - name: Archive build
+        if: ${{ success()}}
         uses: actions/upload-artifact@v3
         with:
-          name: Archive zip file
+          name: upload-package
           path: module3_task3/awesome-website.zip
 
       - name: Release
