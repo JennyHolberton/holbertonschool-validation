@@ -45,8 +45,8 @@ jobs:
       - name: Read DEPLOY.md content into release body
         id: deploy_content
         run: |
-          cat module3_task3/DEPLOY.md > deploy_content.txt
-          echo "::set-output name=content::$(cat deploy_content.txt)"
+          content=$(cat module3_task3/DEPLOY.md)
+          echo "::set-output name=content::$content"
 
       - name: Release
         uses: softprops/action-gh-release@v1
