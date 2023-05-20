@@ -18,10 +18,12 @@ jobs:
           cd module3_task3
           chmod u+x setup.sh
           ./setup.sh
+
       - name: lint markdownfile
         run: |
           cd module3_task3
           make lint
+
       - name: Go into correct directory and execute make targets
         run: |
           cd module3_task3
