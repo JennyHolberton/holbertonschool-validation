@@ -42,6 +42,11 @@ jobs:
           name: Archive zip file
           path: module3_task3/awesome-website.zip
 
+      - name: Read DEPLOY.md content into release body
+        id: deploy_content
+        run: |
+          echo "::set-output name=content::$(cat module3_task3/DEPLOY.md)"
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
@@ -49,8 +54,4 @@ jobs:
           files: |
             module3_task3/awesome-website.zip
             module3_task3/DEPLOY.md
-
-      - name: Read DEPLOY.md content into release body
-        id: deploy_content
-        run: |
-          echo "::set-output name=content::$(cat module3_task3/DEPLOY.md)"
+          body: ${{ steps.deploy_content.outputs.content }}
