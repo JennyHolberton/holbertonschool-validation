@@ -28,7 +28,6 @@ jobs:
         run: |
           cd module3_task3
           make build
-          make run
           make validate
           make integration-tests
           make unit-tests
@@ -49,11 +48,3 @@ jobs:
           files: |
             module3_task3/awesome-website.zip
             module3_task3/DEPLOY.md
-          body: |
-            # Deployment documentation
-            ## What is an archive
-            ## How to unarchive
-            ## How to start application
-            ## How to stop application
-            ## How to customers were logs are written
-            ## How to verify is application is running
