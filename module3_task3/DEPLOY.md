@@ -1,25 +1,41 @@
-# DEPLOYMENT
+# Deployment documentation
 
-## Contents
+## What is an archive?
 
-The archive contains the latest build and the api binary, and
-can be found either as an upload, or listed under Releases
-if tag 1.0.0 is used
+The application archive contains the necessary files and
+configurations to deploy and run the application.
 
-## Extraction Process
+## How to unarchive?
 
-Run the command:
-`unzip awesome-website.zip`
+1. Download the application archive to
+the desired deployment location.
+2. Open a terminal or command prompt and navigate to
+the directory where the archive is located.
+3. Run `unzip awesome-website.zip`
+4. Find archive in tag 1.0.0 release
 
-## Operation
+## Commands to start and stop the application  
+  
+### Start
 
-To run the application use:
-`hugo server`
+1. Open a terminal or command prompt.
+2. Navigate to the application directory where
+the files were unarchived.
+3. Run `./awesome-api >./awesome-api.log 2>&1 &`
 
-## How to customise where logs are written
+### Stop
 
-Logs are created by Github actions, and stored in the respective runner
+1. Open a terminal or command prompt.
+2. Locate the running process ID (PID) of the application.
+3. Run `kill <PID>`
 
-## How to check if the application is running
+## How to customise where applications logs are written
 
-Use the url in modern browser: <http://localhost:1313>
+1. Open the application's configuration file, named `config.yaml`.
+2. Look for the log configuration section or properties.
+3. Modify the log file path or directory as desired.
+4. Save the changes.
+
+## How to quickly verify the application is running
+
+1. [Visit](http://localhost:9999)
