@@ -10,41 +10,29 @@ jobs:
   module3_task3:
     runs-on: ubuntu-22.04
     steps:
-      - name: Clone the repository
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Run script to setup Hugo
+      - name: Setup Hugo
         run: |
-          cd module3_task3/
+          cd module3_task3
+          chmod u+x setup.sh
           ./setup.sh
-        shell: bash
 
-      - name: Build and create package
+      - name: lint markdownfile
         run: |
-          cd module3_task3/
+          cd module3_task3
           make lint
 
-      - name: Build and create package
+      - name: Go into correct directory and execute make targets
         run: |
-          cd module3_task3/
-          make package
-
-      - name: Run tests
-        run: |
-          cd module3_task3/
+          cd module3_task3
           make build
           make validate
           make integration-tests
           make unit-tests
           make package
-          make clean
-
-      - name: Archive build
-        if: ${{ success()}}
-        uses: actions/upload-artifact@v3
-        with:
-          name: upload-package
-          path: module3_task3/awesome-website.zip
+          make help
 
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -53,3 +41,10 @@ jobs:
           files: |
             module3_task3/awesome-website.zip
             module3_task3/DEPLOY.md
+
+      - name: Archive build
+        if: ${{github.ref=='refs/heads/master'}}
+        uses: actions/upload-artifact@v3
+        with:
+          name: upload-package
+          path: module3_task3/awesome-website.zip
