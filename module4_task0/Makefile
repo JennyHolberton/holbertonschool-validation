@@ -10,7 +10,7 @@ build:	## Generate the source code of the application to a binary and generate a
 	$(MAKE) hugo-build 
 
 golang-build:	## Generate the source code of the application to a binary.
-	docker run --rm --tty --interactive --volume=$(pwd):/app --workdir=/app golang:1.15.8-buster go build -o $(TARGET)
+	docker run --rm --tty --volume=$(pwd):/app --workdir=/app golang:1.15.8-buster go build -o $(TARGET)
 
 hugo-build: ## Generate static Hugo site
 	$(HUGO)
