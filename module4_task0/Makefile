@@ -37,10 +37,10 @@ test:	## Test the application.
 	$(MAKE) validate
 
 unit-tests: ## Run unit tests
-	docker run --rm --tty --interactive --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=$(COVERAGE)-units.out
+	docker run --rm --tty --interactive --volume=$(PWD):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=$(COVERAGE)-units.out
 
 integration-tests: ## Run integration tests
-	docker run --rm --tty --interactive --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -coverprofile=$(COVERAGE)-integrations.out
+	docker run --rm --tty --interactive --volume=$(PWD):/app --workdir=/app golang:1.15.8-buster go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 validate:	## Validate the file dist/index.html using the command line Holberton’s W3C Validator.
 	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true
