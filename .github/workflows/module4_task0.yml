@@ -21,7 +21,7 @@ jobs:
 
       - name: lint markdownfile
         run: |
-          cd module4_task4
+          cd module4_task0
           make lint
 
       - name: Go into correct directory and execute make targets
