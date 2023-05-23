@@ -10,7 +10,7 @@ build:	## Generate the source code of the application to a binary and generate a
 	$(MAKE) hugo-build 
 
 golang-build:	## Generate the source code of the application to a binary.
-	docker run --rm --tty --volume=$(pwd):/app --workdir=/app golang:1.15.8-buster go build -o $(TARGET)
+	docker run --rm --tty --volume=$$(pwd):/app --workdir=/app golang:1.15.8-buster go build -o $(TARGET)
 
 hugo-build: ## Generate static Hugo site
 	$(HUGO)
@@ -37,10 +37,10 @@ test:	## Test the application.
 	$(MAKE) validate
 
 unit-tests: ## Run unit tests
-	docker run --rm --tty --interactive --volume=$(PWD):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=$(COVERAGE)-units.out
+	docker run --rm --tty --interactive --volume=$$(pwd):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=$(COVERAGE)-units.out
 
 integration-tests: ## Run integration tests
-	docker run --rm --tty --interactive --volume=$(PWD):/app --workdir=/app golang:1.15.8-buster go test -v -coverprofile=$(COVERAGE)-integrations.out
+	docker run --rm --tty --interactive --volume=$$(pwd):/app --workdir=/app golang:1.15.8-buster go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 validate:	## Validate the file dist/index.html using the command line Holberton’s W3C Validator.
 	python3 /opt/W3C-Validator/w3c_validator.py ./dist/index.html || true

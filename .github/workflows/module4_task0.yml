@@ -28,9 +28,7 @@ jobs:
         run: |
           cd module4_task0
           make build
-          make validate
-          make integration-tests
-          make unit-tests
+          make test
           make package
           make help
 
