@@ -16,7 +16,6 @@ jobs:
       - name: Setup Hugo
         run: |
           cd module4_task0
-          chmod +x setup.sh
           ./setup.sh
 
       - name: lint markdownfile
