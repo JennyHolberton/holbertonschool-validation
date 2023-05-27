@@ -1,0 +1,48 @@
+name: module4_task1
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 0 * * *"
+  pull_request:
+    types: [opened, reopened, edited, ready_for_review]
+jobs:
+  module4_task1:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        run: |
+          cd module4_task1
+          ./setup.sh
+
+      - name: lint markdownfile
+        run: |
+          cd module4_task1
+          make lint
+
+      - name: Go into correct directory and execute make targets
+        run: |
+          cd module4_task1
+          make build
+          make test
+          make package
+          make help
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: 1.0.0
+          files: |
+            module4_task1/awesome-website.zip
+            module4_task1/DEPLOY.md
+
+      - name: Archive build
+        if: ${{github.ref=='refs/heads/master'}}
+        uses: actions/upload-artifact@v3
+        with:
+          name: upload-package
+          path: module4_task1/awesome-website.zip
